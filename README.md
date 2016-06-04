@@ -30,7 +30,7 @@ If you encounter bugs or have ideas to make it better please let me know at [pan
 - Now open your browser and surf to http://127.0.0.1:8080 (note the port-number)
 - Select the correct COM port and baudrate (9600).
 - Press Connect. 
-
+ 
 Now you should see the sketch on your Arduino drawing and updating the html page, which looks something like:
 ![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_Snippets.gif)
 
