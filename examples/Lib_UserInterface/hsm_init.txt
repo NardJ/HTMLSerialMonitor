@@ -1,0 +1,153 @@
+<h1>Sample - External html file</h1>
+<hr>
+<br>
+<h2>Arduino Nano Pin status</h2>
+
+<div style='margin-left:40px;margin-top:40px;border:0px solid black;height:273px;width:168px;color:white;font-family:Tahoma;float:left'> <!-- Nano vertically oriented -->
+	<div style='float:left;width:20px;border:0px solid black;font-size:14px;text-align:center;'> <!--left side of Nano -->
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>&nbsp;</div>  
+	  <div id='pD13' style='height:16px;'>0</div>
+	  <div id='p3V3' style='height:16px;'>0</div>
+	  <div id='pREF' style='height:16px;'>0</div>
+	  <div id='pA0' style='height:16px;'>0</div>
+	  <div id='pA1' style='height:16px;'>0</div>
+	  <div id='pA2' style='height:16px;'>0</div>
+	  <div id='pA3' style='height:16px;'>0</div>
+	  <div id='pA4' style='height:16px;'>0</div>
+	  <div id='pA5' style='height:16px;'>0</div>
+	  <div id='pA6' style='height:16px;'>0</div>
+	  <div id='pA7' style='height:16px;'>0</div>
+	  <div id='p5V' style='height:16px;'>0</div>
+	  <div id='pRST' style='height:16px;'>0</div>
+	  <div id='pGND1' style='height:16px;'>0</div>
+	  <div id='pVIN' style='height:16px;'>0</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>&nbsp;</div>  
+	</div>
+	<div style='float:left;width:20px;border:0px solid black;font-size:10px;text-align:right;padding-right:4px;background-color:#3333CC;'> <!--left side of Nano -->
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>&nbsp;</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D13</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>3V3</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>REF</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>A0</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>A1</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>A2</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>A3</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>A4</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>A5</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>A6</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>A7</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>5V</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>RST</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>GND</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>VIN</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>&nbsp;</div>  
+	</div>
+	
+	<div style='float:left;width:70px;border:0px solid black;background-color:#3333CC;'> <!-- middle of Nano -->
+	  <div style='height:60px;width:50px;border:1px solid black;margin-left:auto;margin-right:auto;margin-top:-9px;text-align:center;line-height:60px;background-color:gray;'>USB</div>
+	  
+	  <div style='clear:both;height:16px;border:0px solid black;'></div>
+	  
+	  <div style='width:60px;margin-left:auto;margin-right:auto;'>
+	  <div style='float:left;width:0;height:0;border-top:30px solid transparent;border-right:30px solid #444444; border-bottom:30px solid transparent;'></div>
+	  <div style='float:left;width:0;height:0;border-top:30px solid transparent;border-left:30px solid #444444; border-bottom:30px solid transparent;'></div>
+	  </div>
+	  
+	  <div style='clear:both;height:16px;border:0px solid black;'></div>
+	  
+	  <div style='float:left;width:25px;height:15px;'></div>
+	  <div style='float:left;width:20px;height:15px;background-color:gray;text-align: center; line-height:15px;color:red'>&#9679;</div>
+	  <div style='float:left;width:25px;height:15px;'></div>
+		
+	  <div style='clear:both;height:16px;border:0px solid black;'></div>
+	  
+	  <div style='float:left;width:10px;height:20px;background-color:yellow'>&#9679</div>
+	  <div style='float:left;width:10px;height:20px;'></div>
+	  <div style='float:left;width:10px;height:20px;background-color:yellow'>&#9679</div>
+	  <div style='float:left;width:10px;height:20px;'></div>
+	  <div style='float:left;width:10px;height:20px;background-color:yellow'>&#9679</div>
+	  <div style='float:left;width:10px;height:20px;'></div>
+	  <div style='float:left;width:10px;height:20px;background-color:yellow'>&#9679</div>
+
+	  <div style='clear:both;height:16px;border:0px solid black;'></div>
+	  
+	  <div style='clear:both;line-height:10px;border:0px solid black;font-size:8px;text-align:center;'>ARDUINO<br>NANO<br>V3.0</div>
+	  
+	  <div style='height:30px;width:50px;border:0px solid black;margin-left:auto;margin-right:auto;text-align:center;line-height:30px;background-color:black;'>ICSP</div>	  
+	</div>
+	
+	<div style='float:left;width:20px;border:0px solid black;font-size:10px;padding-left:4px;background-color:#3333CC;'>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>&nbsp;</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D12</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D11</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D10</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D9</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D8</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D7</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D6</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D5</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D4</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D3</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>D2</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>GND</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>RST</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>RX1</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>TX1</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>&nbsp;</div>
+	</div>
+
+	<div style='float:left;width:20px;border:0px solid black;font-size:14px;text-align:center;'> <!--left side of Nano -->
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>&nbsp;</div>  
+	  <div id='pD12' style='height:16px;'>0</div>
+	  <div id='pD11' style='height:16px;'>0</div>
+	  <div id='pD10' style='height:16px;'>0</div>
+	  <div id='pD9' style='height:16px;'>0</div>
+	  <div id='pD8' style='height:16px;'>0</div>
+	  <div id='pD7' style='height:16px;'>0</div>
+	  <div id='pD6' style='height:16px;'>0</div>
+	  <div id='pD5' style='height:16px;'>0</div>
+	  <div id='pD4' style='height:16px;'>0</div>
+	  <div id='pD3' style='height:16px;'>0</div>
+	  <div id='pD2' style='height:16px;'>0</div>
+	  <div id='pGND2' style='height:16px;'>0</div>
+	  <div id='pRST2' style='height:16px;'>0</div>
+	  <div id='pRX1' style='height:16px;'>0</div>
+	  <div id='pTX1' style='height:16px;'>0</div>
+	  <div style='line-height:10px; padding-top:3px;padding-bottom:3px;'>&nbsp;</div>  
+	</div>
+	
+</div>
+
+<div style='margin-left:40px;margin-top:40px;border:0px solid black;height:220px;width:273px;font-family:Tahoma;float:left'> 
+  [yline:osc]
+        [osc.w:273]
+        [osc.h:220]
+        [osc.b:#FFFF99]
+</div>
+
+<div style='margin-left:40px;margin-top:20px;border:0px solid black;height:33px;width:273px;font-family:Tahoma;float:left'> 
+  <b>Pin to display in graph: </b>  
+  <select style='float:right;width:110px' onclick="sendArduino(this.value);" >
+    <option value="A0">Analog 0</option> 
+	<option value="A1">Analog 1</option>
+	<option value="A2">Analog 2</option>
+	<option value="A3">Analog 3</option>
+	<option value="A4">Analog 4</option>
+	<option value="A5">Analog 5</option>
+	<option value="A6">Analog 6</option>
+	<option value="A7">Analog 7</option>
+    <option value="2">Digital 2</option> 
+	<option value="3">Digital 3</option> 
+	<option value="4">Digital 4</option> 
+	<option value="5">Digital 5</option> 
+	<option value="6">Digital 6</option> 
+	<option value="7">Digital 7</option> 
+	<option value="8">Digital 8</option> 
+	<option value="9">Digital 9</option> 
+	<option value="10">Digital 10</option> 
+	<option value="11">Digital 11</option> 
+	<option value="12">Digital 12</option> 
+	<option value="13">Digital 13</option> 			
+  </select>	
+</div>
+
