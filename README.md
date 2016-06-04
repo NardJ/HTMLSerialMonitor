@@ -33,9 +33,9 @@ Press Connect.
 
 Now you should see the sketch on your Arduino drawing and updating the html page, which looks something like:
 ![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_Snippets.gif)
+For more info, go to http://127.0.0.1:8080/manual.htm.
 
-For more info, go to http://127.0.0.1:8080/manual.htm
-To give you an impression of the range op possiblities:
+To give you an impression of the possiblities:
 ![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Bare_DecoratedText.gif)
 ![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_UserInterface.gif)
 
