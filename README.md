@@ -26,7 +26,7 @@ Select a example from the HTMLSerialMonitor library e.g. Lib_Snippets.
 Burn the sketch to your Arduino.
 
 Go to the folder where you placed the HTMLSerialMonitor program.
-Run HTMLSerialMonitor.
+Run HTMLSerialMonitor. If you don't have java installed, HTMLSerialMonitor will ask you to install Java.
 Now open your browser and surf to http://127.0.0.1:8080 (note the port-number)
 Select the correct COM port and baudrate (9600).
 Press Connect. 
