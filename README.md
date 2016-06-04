@@ -14,7 +14,28 @@ HTML Serial Monitor needs exclusive access to the Arduino (just like the serial 
 
 If you encounter bugs or have ideas to make it better please let me know at [pandarve.link@gmail.com](pandarve.link@gmail.com).
 
-![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Bare_DecoratedText.gif)
+### Install
+Download 
+Open the archive
+Go to the Processing folder in the archive, select the correct subfolder for your system en copy it to a folder of your liking. This is the HTMLSerialMonitor program.
+Go to the Arduino-Lib folder in the archive and copy the HTMLSerialMonitor to your Arduino library folder.
+
+### First run
+Open your Arduino IDE.
+Select a example from the HTMLSerialMonitor library e.g. Lib_Snippets.
+Burn the example to your Arduino.
+
+Go to the folder where you placed the HTMLSerialMonitor program.
+Run HTMLSerialMonitor.
+Now open your browser and surf to http://127.0.0.1:8080 (note the port-number)
+Select the correct COM port and baudrate (9600).
+Press Connect. 
+
+Now you should see the sketch on your Arduino drawing and updating the html page, which looks something like:
 ![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_Snippets.gif)
+
+For more info, go to http://127.0.0.1:8080/manual.htm
+To give you an impression of the range op possiblities:
+![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Bare_DecoratedText.gif)
 ![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_UserInterface.gif)
 
