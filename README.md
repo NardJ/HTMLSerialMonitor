@@ -23,7 +23,7 @@ Go to the Arduino-Lib folder in the archive and copy the HTMLSerialMonitor to yo
 ### First run
 Open your Arduino IDE.
 Select a example from the HTMLSerialMonitor library e.g. Lib_Snippets.
-Burn the example to your Arduino.
+Burn the sketch to your Arduino.
 
 Go to the folder where you placed the HTMLSerialMonitor program.
 Run HTMLSerialMonitor.
