@@ -1,0 +1,90 @@
+<html>
+<head>
+  <title>HTML Serial Monitor - Generic</title>
+  <!-- http://htmldog.com/techniques/tabs/ -->
+  <link rel="stylesheet" type="text/css" href="hsm_init.css">
+  
+  <script>
+  function selectTab(tabNr){
+    //var tabs = document.getElementById("tabs");
+	var tabs = document.getElementsByClassName("tab");
+    var tabpages = document.getElementsByClassName("tabcontent");
+    for (var i = 0; i <tabs.length; i++) {
+      if (i==tabNr){
+	    tabs[i].className="tab selected";
+		tabpages[i].className="tabcontent selected";
+	}else{
+	    tabs[i].className="tab unselected";
+		tabpages[i].className="tabcontent unselected";
+	  } 
+    }
+  }
+  
+  function sizeSection(){
+    var header = document.getElementById("header");
+	var footer = document.getElementById("footer");
+	var page   = document.getElementById("page");
+	var tabheader = document.getElementById("tabs");
+	var tabs = document.getElementsByClassName("tab");
+    var remHeight = (document.body.clientHeight - header.offsetHeight-footer.offsetHeight);
+    page.style.height=remHeight;
+	
+	var tabpages = document.getElementsByClassName("tabcontent");
+    for (var i = 0; i < tabpages.length; i++) {
+	  tabpages[i].style.height=page.offsetHeight-tabs[0].offsetHeight-footer.offsetHeight;//footer.offsetTop-tabpages[i].offsetTop;
+	  var msg="header:"+header.offsetTop+"+"+header.offsetHeight+"="+(header.offsetTop+header.offsetHeight)+"<br>";
+	  msg+="page:"+page.offsetTop+"+"+page.offsetHeight+"="+(page.offsetTop+page.offsetHeight)+"<br>";
+	  msg+="footer:"+footer.offsetTop+"+"+footer.offsetHeight+"="+(footer.offsetTop+footer.offsetHeight)+"<br>";
+	  msg+="tabhead:"+tabheader.offsetTop+"+"+tabheader.offsetHeight+"="+(tabheader.offsetTop+tabheader.offsetHeight)+"<br>";
+	  msg+="tab[0]  :"+tabs[0].offsetTop+"+"+tabs[0].offsetHeight+"="+(tabs[0].offsetTop+tabs[0].offsetHeight)+"<br>";
+	  msg+="content:"+tabpages[i].offsetTop+"+"+tabpages[i].offsetHeight+"="+(tabpages[i].offsetTop+tabpages[i].offsetHeight)+"<br>";
+	  msg+="page.style.height:"+remHeight+"<br>";
+	  msg+="tabpages[i].style.height:"+tabpages[i].style.height+"<br>";
+	  msg+=page.offsetHeight+"-"+tabs[0].offsetHeight+"="+(page.offsetHeight-tabs[0].offsetHeight);
+	  if (i==0) tabpages[i].innerHTML=msg;
+	}
+  }
+  
+  </script>
+   
+</head>
+
+<body onresize="sizeSection();">
+
+<div id="header">
+  <h1>Tabs</h1>
+</div>
+
+<div id="page">
+
+  <ul id="tabs">
+        <li class="tab selected"   onclick="selectTab(0);">Messages</li>
+        <li class="tab unselected" onclick="selectTab(1);">Y line chart</li>
+        <li class="tab unselected" onclick="selectTab(2);">XY line chart</li>
+        <li class="tab unselected" onclick="selectTab(3);">XY point chart</li>
+        
+  </ul>
+  
+
+  <section class="tabcontent selected" id="0">
+    Messages
+  </section>
+
+  <section class="tabcontent unselected" id="1">
+    Y Line chart
+  </section>
+
+  <section class="tabcontent unselected" id="2">
+    XY Line chart
+  </section>
+
+  <section class="tabcontent unselected" id="3">
+    XY Point chart
+  </section>
+</div>
+  
+<div id="footer"> footer </div>
+  
+
+</body>
+</html>

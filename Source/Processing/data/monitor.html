@@ -1,0 +1,181 @@
+<!--<!DOCTYPE html>  resize of divs (vslider/hslider) does not work correctly with doctype -->
+<html>
+
+<head>
+  <title>HTML Serial Monitor - Active</title>
+  <link rel="stylesheet" type="text/css" href="monitor.css">
+  <script src='updater.js'></script>  
+
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate'>
+  <meta http-equiv='Pragma' content='no-cache'>
+  <meta http-equiv='Expires' content='0'>
+  
+  <script> //Manages onFocus and onBlur
+    var autodisconnect = %autodisconnect%; //true or false
+	var autoreconnect  = %autoreconnect%;  //true or false
+	function onBlur() {
+	    if (!autodisconnect) return;
+	    printConsole("==> onBlur");
+		document.getElementById("RunStatus").style.backgroundColor="red";
+		xmlhttpConnected=false;
+		sendMsg("pause");
+		sendProcessing("disconnect");
+	}
+	var TimerIv;
+	function onFocus(){
+	    if (!autoreconnect) return;
+		printConsole("==> onFocus");
+		document.getElementById("RunStatus").style.backgroundColor="yellow";
+		timerIv=setInterval(waitForReconnect,500);
+	}
+	if (/*@cc_on!@*/false) { // check for Internet Explorer
+		document.onfocusin = onFocus;
+		document.onfocusout = onBlur;
+	} else {
+		window.onfocus = onFocus;
+		window.onblur = onBlur;
+	}  
+	
+	var nrTry=0;
+	function waitForReconnect(){
+	  //check if we tried more than 3 times (0.9Sec)
+	  printConsole("waitForReconnect");
+      if (nrTry>4) 	{
+	    var r = confirm("Resume failed 3 times. Check if your Arduino is still connected. Do you want to keep trying?\nBuffer:\n"+buffer);
+		if (r == false) { //if user cancels we stop timer and go back to index / config page
+		  clearInterval(timerIv);
+		  var arr=window.location.href.split('/');location.href=arr[0]+'//'+arr[2];
+		  return;
+		}else{
+		  nrTry=0;
+		}
+	  }
+	  //check if serial became active
+      if (serialActive) {
+	    clearInterval(timerIv);
+		sendMsg("play");
+		document.getElementById("RunStatus").style.backgroundColor="green";
+		return;
+	  }
+	  //try again
+	  nrTry++;
+	  printConsole("New try "+nrTry+" reconnect");
+	  sendProcessing("reconnect"); //wait for updater.js to receive '[reconnect succes]' in buffer and set serialActive to true 
+	}
+	
+  </script>
+  
+  <script> //Manages Console and Source tab
+    var oldCntId="";	
+	var oldTab=null;
+	function getStyle(el,styleProp){
+      if (el.currentStyle) return el.currentStyle[styleProp];
+      return document.defaultView.getComputedStyle(el,null)[styleProp];
+	}	
+	function toggle(tab,cntId){
+	  var tabs=document.getElementById("tabs");
+	  var cnt=document.getElementById(cntId);
+      if ((oldCntId==cntId) || (oldCntId=="")){
+	    var h=cnt.offsetHeight;
+		if (h==0) {
+		  tabs.style.bottom="50%";
+		  tab.style.marginTop="2px";
+		  tab.style.backgroundColor=getStyle(cnt,"backgroundColor");		  
+		  cnt.style.display="block"; 		  
+		  cnt.style.width=window.innerWidth-16;
+		  cnt.style.height=window.innerHeight/2-16;
+		  oldCntId=cntId;
+		  oldTab=tab;
+		}else {
+		  cnt.style.display="none"; 
+		  tab.style.marginTop="0px";		  
+		  tab.style.backgroundColor="gray";		  
+		  tabs.style.bottom="0%";
+		  oldCntId="";	  
+		  oldTab=null;
+		}
+	  }else{	    
+	    var oldcnt=document.getElementById(oldCntId);
+		oldcnt.style.display="none";
+		oldTab.style.marginTop="0px";		  
+	    oldTab.style.backgroundColor="gray";		  
+		cnt.style.display="block"; 
+		cnt.style.width=window.innerWidth-16;
+		cnt.style.height=window.innerHeight/2-16;
+		tab.style.marginTop="2px";
+  	    tab.style.backgroundColor=getStyle(cnt,"backgroundColor");		  
+		  
+		oldCntId=cntId;
+		oldTab=tab;
+	  }	  	  
+	}
+  </script>
+</head>
+
+<body>				  
+	<div id='Log'> </div>
+	<div id='NR'>000</div>	
+	<div id='Source' ></div>
+	<div id='Console'></div>
+	<div id="tabs">
+	  <div class="tab" style="width:16px;margin:0px;padding:0px;visibility:hidden;">spacer</div>
+	  <div class="tab" onclick="toggle(this,'Source')" >Source</div>
+	  <div class="tab" onclick="toggle(this,'Console')">Console</div>
+	</div>
+	
+	<div id='RunLabel'>
+	  Status:
+	  <div id='RunStatus'></div>
+	</div>
+
+	<div id="Menu">
+	
+		<div id="ConnPP" 
+			onclick="sendMsg(this.title); 	    
+					  if (this.title=='play'){
+						this.style.backgroundImage='url(&quot;play_normal.png&quot;)';
+						this.title='pause';
+					  }else{
+						this.style.backgroundImage='url(&quot;pause_normal.png&quot;)';
+						this.title='play';
+					  }
+					  this.style.backgroundSize='100%';
+					  "
+			onmouseover="
+					  if (this.title=='pause'){
+						this.style.backgroundImage='url(&quot;pause_hover.png&quot;)';
+					  }else{
+						this.style.backgroundImage='url(&quot;play_hover.png&quot;)';
+					  }
+					  this.style.backgroundSize='100%';"
+			 onmouseout="
+					  if (this.title=='pause'){
+						this.style.backgroundImage='url(&quot;play_normal.png&quot;)';
+					  }else{
+						this.style.backgroundImage='url(&quot;pause_normal.png&quot;)';
+					  }
+					  this.style.backgroundSize='100%';"
+			title="pause">	
+			<!-- preload the images -->
+			<div style="display:hidden;background-image:url(play_normal.png);"></div>	
+			<div style="display:hidden;background-image:url(play_hover.png);"></div>
+			<div style="display:hidden;background-image:url(pause_normal.png);"></div>
+			<div style="display:hidden;background-image:url(pause_hover.png);"></div>
+		</div>
+		<div id="ConnBtn" title="disconnect"
+			 onclick    ="var arr=window.location.href.split('/');location.href=arr[0]+'//'+arr[2];"
+			>
+			<!-- preload the images -->
+			<div style="display:hidden;background-image:url(discon_normal.png);"></div>	
+			<div style="display:hidden;background-image:url(discon_hover.png);"></div>
+		</div>
+		<div id="ConnRst" onclick="sendMsg('reset');" title="reset arduino">
+			<!-- preload the images -->
+			<div style="display:hidden;background-image:url(reset_normal.png);"></div>		
+			<div style="display:hidden;background-image:url(reset_hover.png);"></div>		
+			<div style="display:hidden;background-image:url(reset_wait.png);"></div>		
+		</div>
+	</div>
+</body></html>

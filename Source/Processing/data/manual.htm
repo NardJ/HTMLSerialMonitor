@@ -1,0 +1,299 @@
+<html>
+<head>
+<title>HTML Serial Monitor - Config</title>
+<meta name='viewport' content='width=device-width, initial-scale=1' />
+<style>
+body{
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin:8px;
+}
+#header{
+  height:100px;
+  width:100%;
+  background-color:rgb(1,10,79);
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+#banner {
+  float:left;
+  height:100px;
+  width:320px;
+  border:0px;
+  background-repeat:no-repeat;
+}
+
+#title{
+  position:absolute;
+  top:34px;
+  right:24px;
+  color:white;
+  font-size:32px;
+  border:0px solid blue;
+}
+
+#index{
+  float:right;
+  font-size:1.5em;
+  text-decoration:none;
+  padding-right:0.5em;
+}
+
+.inline-code{
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  background-color: #eee;  
+  color:#4a4;
+  font-weight:bold;
+  font-size:0.9em;
+}
+.hsm{
+  font-variant: small-caps;
+  font-weight:bold;
+}
+.snap{
+  position:absolute;
+  right:24px;  //equals margin of body + width of scrollbar...
+  width:auto;
+  height:80px;
+  margin-top:-3px;  
+  padding:1px;
+  border:1px solid #999;
+}
+.snap:hover{ 
+  right:28px; 		//make it jump a bit
+  margin-top:1px;  	//make it jump a bit
+  width:auto;
+  height:auto;
+  max-height:400px;
+}
+pre{
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  background-color: #eee;
+  border:1px solid #999;
+  margin-bottom: 10px;
+  padding:2px;
+  max-height:400px;
+  overflow-x:auto;
+  overflow-y:scroll;
+  
+}
+code{
+}
+h4{
+  margin:0px;
+  margin-top:2em;
+}
+li{
+  margin-bottom:0.5em;
+  }
+.tbButton{
+  width:14px;
+  height:14px;
+  margin:0;
+  padding:0;
+  margin-bottom:-2px;
+}  
+</style>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+<script language="javascript">
+function toggle (el) {
+  var indicatorP=getFirstChildByClassname(el,"cIndicatorP");
+  var indicatorM=getFirstChildByClassname(el,"cIndicatorM");
+  var content=getFirstChildByClassname(el,"cContent");
+  //alert(indicator.id+","+content.id);
+  if(content.style.display == "block") {
+         content.style.display = "none";
+         indicatorP.style.display = "inline-block";
+		 indicatorM.style.display = "none";
+  } else {
+         content.style.display = "block";
+		 indicatorP.style.display = "none";
+         indicatorM.style.display = "inline-block";
+  }
+}
+function getFirstChildByClassname(el,classname){
+  var childs=el.childNodes;
+  for (var i=0;i<childs.length;i++){
+    var child=childs[i];
+	if (child!=undefined) 
+	  if (child.className!=undefined){
+	    var cn=child.className.split(" ");
+		for (var j=0;j<cn.length;j++){
+	      //alert(child.className+","+child.id);	
+          if (cn[j]==classname) return child;
+		}
+	  }
+  } 
+}
+</script>
+<style>
+  .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .cIndicatorP{
+    display:inline-block;
+	border:1px solid black;
+	width:16px;
+	height:16px;
+	text-align:center;
+  }
+  .cIndicatorM{
+    display:none;
+	border:1px solid black;
+	width:16px;
+	height:16px;
+	text-align:center;
+  }
+  .cTitle{
+    height:16px;
+	line-height:14px;
+  }
+  .cContent{
+    display:none;
+	background-color:
+	white;margin:2px;
+  }
+  .collapsBox{
+    padding-top:2px;
+	padding-bottom:2px;
+	background-color:#ccd;
+	cursor:pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<div id="header" >
+  <div id="banner" ></div>
+  <div id="title">
+	   HTML Serial Monitor
+  </div>
+</div>
+<!-- hide loading banner image, by preloading in background -->
+<img src="pd_banner_main.png" style="display:none;" 
+     onload="document.getElementById('banner').style.backgroundImage='url(pd_banner_main.png)';"/>
+<!-- ------------------------------------------------------ -->
+
+<a href="index.htm" id="index">> back to config</a>
+
+<H1>Manual</H1>
+<p><span class="hsm">HTML Serial Monitor</span> is a replacement for the standard serial monitor which comes with the 
+<a href="https://www.arduino.cc/en/Main/Software" style="text-decoration: none;">Arduino IDE</a>. It allows you to use 
+html to enhance you debugging messages and make a dashboard. </p>
+<p>
+<span class="hsm">HTML Serial Monitor</span> uses your browser to output the html debugging messages from your Arduino. 
+It also allows you to send messages back to your Arduino, like button clicks or information your html-code requests from the internet. 
+An Arduino library is available with some predefined functions to make some things easier.
+It was programmed in Processing 3.1 (Java mode), acts like a bridge which receives messages from the serial port and serves them to your browser by implementing a webserver. 
+Special codes in the messages are replaced before sending them through.</p>
+<p>
+This program is still considered to be in development and was only tested by myself with an Arduino Nano on Chrome, Edge and Internet Explorer 11 using a Windows 10 pc.
+It has no access to your arduino sketch folders, so the risk of any bugs should be very limited.
+<span class="hsm">HTML Serial Monitor</span> needs exclusive access to the Arduino (just like the serial monitor of your Arduino IDE).
+It cannot (yet) be started from the Arduino IDE. 
+</p>
+<p>
+If you encounter bugs or have ideas to make it better please let me know at
+<A href="mailto:pandarve.link@gmail.com?SUBJECT=HTMLSerialMonitor">pandarve.link@gmail.com</a>.
+</p>
+<hr>
+
+<h2>Workflow/Usage</H2>
+<p>
+For most users it is best to open the <span class="hsm">HTML Serial Monitor</span> application and 
+url <a href="/">http://localhost:8080</a> in your browser at the same time you start the Arduino IDE and keep it 
+open as long as you use the Arduino IDE. 
+</p>
+<p>
+<div style="float:right;">
+  <img src="config_page.jpg"  style="width:240px; height:117; border:1px solid black;"/>
+  <img src="monitor_page.jpg" style="width:240px; height:117; border:1px solid black;"/>
+</div>
+The first page shown is the config webpage (first picture) in which you can request a connection to your Arduino board. 
+<br><br>This will cause the monitor webpage (second picture) to load. A serial connection will be setup which will also cause the Arduino to reset. 
+If the monitor looses focus, for instance when you select the Arduino IDE to modify and upload a new sketch, 
+the serial connection will be closed. 
+On regaining focus, the serial connection will be reestablished (and the Arduino will be reset).
+</p>
+<hr>
+
+<H2>Features / Serial Commands</H2>
+<p>
+As mentioned with <span class="hsm">HTML Serial Monitor</span> you can send html enhanced debugging strings to your browser. 
+Because these strings take up more of your precious Arduino memory than plain text, some features are present to minimize the memory usage:
+<ul>
+<li> <span class="hsm">HTML Serial Monitor</span> can preload the startup html from a local file named hsm_init.txt on your computer. 
+     Use <span class="inline-code">[sketchpad:$$$$]</span> where $$$$ to specify the path. 
+	 You can use <span class="inline-code">%documents%, %home% and %arduino%</span> in this path.</li>
+<li> You can create html snippets in a local file (controls.js) on your computer. 
+     These snippets can be inserted by using their name e.g. <span class="inline-code">[hslider:myslider]</span> sends the snippet ('hslider') for an horizontal slider to the browser and gives it an unique id ('myslider') which we can use later to modify properties and send data to the snipper.</li>
+<li> You can access some common html properties using one letter propertie names, 
+     e.g. <span class="inline-code">[myslider.f: right]</span>. 
+	 Implemented abreviations are <span class="inline-code">i:innerHTML, v:visibility, d:display, z:zIndex, f:float, s:style, p:position, w:width,h:height, n:font, c:color, r:border, b:background</span>. 
+	 <br><b>Important:</b> Position and size are set/assumed in pixels, <u>don't</u> append 'px'!
+	 </li>
+<li> There are to non-standard abreviations: 'l' sets absolute coordinates and size 
+     (e.g. <span class="inline-code">[myslider.l:10 20 40 50]</span> sets the snippet with id 'myslider' at x:10, y:20 and gives it a width of 40 and height of 50). 't' adds a centered textlabel to the bottom of an inserted snippet (e.g. <span class="inline-code">myslider.t:myLabel]</span>). </li>
+<li> If you want to send a value to a snippet you can ommit a property 
+	 (e.g. <span class="inline-code">[myslider:20]</span> send the value 20 to the slider. Of course your snippet should have javascript code implemented to handle the value put in the data-value property of the html element.</li>
+<li> Your HTML and property changes are only processed after sending the end of line character or using the println command instead of print.</li>
+<li> You can use (recommended) <span class="inline-code">println ("[cls]");</span> to clear the page and this should be the first debugging command at the start of your sketch. Note that we use println instead of print and is needed for reliable operation!</li>
+<li> By using the library (start your sketch with <span class="inline-code">#include <HTMLSerialMonitor.h></span> and then reference it with <span class="inline-code">HTMLSerialMonitor SerialM;</span>) 
+     you can 
+	 <ul>
+	 <li>control your arduino with the buttons <img src="play_normal.png" class="tbButton"/> <img src="discon_normal.png" class="tbButton"/> <img src="reset_normal.png" class="tbButton"/> in (top right) of your browserpage 
+	 if you put <span class="inline-code">SerialM.handlRemoteCmd();</span> somewhere in your loop or use the <span class="inline-code">SerialM.available();</span> and <span class="inline-code">SerialM.read();</span> commands in your serialEvent method.</li>
+	 <li>use the special print command to change a property: <span class="inline-code">SerialM.print(myID,myProp,newVal);</span> or <span class="inline-code">SerialM.print(myID,newVal);</span> for the default property.</li>
+	 </ul>
+	 
+</ul>
+</p>
+
+<hr>
+
+<H2>Examples</H2>
+Some examples will explain this better. All these examples are available as examples in the Arduino library:
+
+<H4>Example 1: 
+    Show A0 change without printing new lines each value:
+</H4>
+<!-- replace < and > with &lt and &gt -->
+<pre class="prettyprint"><img class="snap" src="Bare_DecoratedText.gif"></img><code>%include:Bare_DecoratedText.src% </code></pre>	
+
+<H4>Example 2: 
+Make a static pages/dashboard which updates (complete page) each couple of seconds:
+</h4>
+<pre class="prettyprint"><img class="snap" src="Bare_PageRedraw.gif"></img><code>%include:Bare_PageRedraw.src% </code></pre>
+This is slow and the maximum refreshrate is typically once each few seconds.
+
+<H4>Example 3: 
+The following only updates the properties (innerHTML, background color etc) 
+of the different elements and is much faster:
+</h4>
+<pre class="prettyprint"><img class="snap" src="Lib_ElementRedraw.gif"></img><code>%include:Lib_ElementRedraw.src%</code></pre>
+
+<H4>Example 4: 
+Use of html snippets:
+</h4>
+<pre class="prettyprint"><img class="snap" src="Lib_Snippets.gif"></img><code>%include:Lib_Snippets.src%</code></pre>
+You can modify the snippets in controls.js located in the 
+<span class="hsm">HTML Serial Monitor</span> install folder
+and add your own snippets.
+
+<H4>Example 5: 
+It is also possible to put all html in a local file hsm_init.txt and reference it in your Arduino sketch.
+</h4>
+<br>Arduino sketch:<pre class="prettyprint"><img class="snap" src="Lib_UserInterface.gif"></img><code>%include:Lib_UserInterface.src%</code></pre>
+File hsm_init.txt:<pre class="prettyprint"><code>%include:hsm_init.src%</code></pre>
+The hsm_init.txt file is located in the Arduino sketch folder.
+<body>
+<html>
+
+	

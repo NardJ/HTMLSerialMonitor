@@ -1,0 +1,55 @@
+<!--<!DOCTYPE html>  resize of divs (vslider/hslider) does not work correctly with doctype -->
+<html>
+
+<head>
+  <title>Test focus JS</title>
+  <link rel="stylesheet" type="text/css" href="_.css">
+  <script2 src='visibility.js'></script2>
+  
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate'>
+  <meta http-equiv='Pragma' content='no-cache'>
+  <meta http-equiv='Expires' content='0'>
+  <script>
+	function onBlur() {
+		document.body.className = 'blurred';		
+        logDateTime("lost focus");    
+	};
+	function onFocus(){
+		document.body.className = 'focused';
+        logDateTime("got focus");    
+	};
+	if (/*@cc_on!@*/false) { // check for Internet Explorer
+		document.onfocusin = onFocus;
+		document.onfocusout = onBlur;
+	} else {
+		window.onfocus = onFocus;
+		window.onblur = onBlur;
+	}  
+
+	function logDateTime(msg){
+		var log=document.getElementById("log");
+		log.innerHTML=log.innerHTML+"<br>"+datetimeString()+" -> "+msg;
+	}
+  
+	function datetimeString(){
+		var currentdate = new Date(); 
+		var datetime = "Visbility changed: " + currentdate.getDate() + "/"
+					+ (currentdate.getMonth()+1)  + "/" 
+					+ currentdate.getFullYear() + " @ "  
+					+ currentdate.getHours() + ":"  
+					+ currentdate.getMinutes() + ":" 
+					+ currentdate.getSeconds();
+		return datetime;
+    }
+
+  </script>
+</head>
+
+<body onload="visibilityListener();">		
+<h1>Test Visibility JS</H1>
+<div id="log"><u>State Log:</u></div>		  
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<html>
+<title>HTML Serial Monitor - Config</title>
+<meta name='viewport' content='width=device-width, initial-scale=1' />
+<meta http-equiv='Cache-Control' content='no-cache, no-store, must-revalidate' />
+<meta http-equiv='Pragma' content='no-cache' />
+<meta http-equiv='Expires' content='0' />
+<style>
+body{
+  font: 14px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin:8px;
+}
+
+#header{
+  height:100px;
+  width:100%;
+  background-color:rgb(1,10,79);
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+#banner {
+  float:left;
+  height:100px;
+  width:320px;
+  border:0px;
+  background-repeat:no-repeat;
+}
+
+#title{
+  position:absolute;
+  top:34px;
+  right:24px;
+  color:white;
+  font-size:32px;
+  border:0px solid blue;
+}
+
+#manual{
+  float:right;
+  font-size:1.5em;
+  text-decoration:none;
+  padding-right:0.5em;
+}
+
+.wrapBoxes{
+  border2:1px solid red;
+  height:12em;
+  margin:0em;
+}
+
+.fieldsBox {
+  float:left;
+  display:inline-block;
+  width:50%;
+  border:0px solid gray;
+  margin:0px;
+  overflow:hidden;  
+}
+.fieldsInner{
+  margin:0.5em;
+  padding:1em;
+  padding-bottom:0px;
+  border:1px solid black;  
+  height:100%;  
+}
+.fieldsInnerLeft {
+  margin-left:0;  
+}
+.fieldsInnerRight {
+  margin-right:0px;
+}
+
+.legend{
+  display:inline-block;
+  margin-top:-1.7em;
+  padding-left:0.25em;
+  padding-right:0.25em;
+  margin-left:0.5em;
+  background-color:white;
+  border2:1px solid blue;
+}
+
+.checkpar {
+  clear:both;
+  padding-top:1em;  
+  border2:1px solid blue;  
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.checkbox {
+	border2:1px solid red;
+	float:left;
+}
+.checklabel{
+	float:left;
+	border2:1px solid blue;
+}
+.checksub{
+    float:left;
+	clear:both;
+    font-size:0.8em;
+    padding:0;margin:0;
+	margin-left:3em;
+	border2:1px solid yellow;
+}
+
+.alert {
+    margin:0px;
+    padding: 10px;	
+    background-color: #f44336;
+    color: white;
+}
+.info {
+    margin:0px;
+    padding: 10px;	
+    background-color: #43a136;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+#footer{
+  position:absolute;	
+  bottom:8px;
+  left:8px;
+  right:8px;
+  padding:8px;
+  overflow:hidden;
+  font-size:80%;
+  border-top:1px solid gray;  
+  color: gray;
+}
+.footerElementTitle{
+  width:5em;
+  display:inline-block;
+}
+
+</style>
+
+<body>
+<div id="header" >
+  <div id="banner" ></div>
+  <div id="title">
+	   HTML Serial Monitor
+  </div>
+</div>
+<!-- hide loading banner image, by preloading in background -->
+<img src="pd_banner_main.png" style="display:none;" 
+     onload="document.getElementById('banner').style.backgroundImage='url(pd_banner_main.png)';"/>
+<!-- ------------------------------------------------------ -->
+	 
+<a href="manual.htm" id="manual">quick start</a>
+
+<H1>Config</H1>
+
+  <form action="monitor.html" method="get">
+    <div class="wrapBoxes">
+	  <div class="fieldsBox">
+		  <div class="fieldsInner fieldsInnerLeft">
+			<div class="legend"><b>Connection</b></div>
+			<div class="checkpar">			
+			  COM Port:<br>
+			  <select name="port">
+			    %ports%
+			  </select>
+			</div><!--checkpar-->
+			<div class="checkpar">			
+			  Baudrate:<br>
+			  <select name="baud">
+  			    %baudrates%	  
+			  </select>
+			</div><!--checkpar-->
+			<div class="checkpar">			
+			  <input type="submit" value="Connect" onclick="document.getElementById('alert').style.display='none';document.getElementById('conn').style.display='block';">
+			</div><!--checkpar-->
+		  </div><!--fieldsInner-->	  
+	  </div><!--fieldset-->
+	  <div class="fieldsBox">
+	    <div class="fieldsInner fieldsInnerRight">		
+			<div class="legend"><b>Settings</b></div>
+			<div class="checkpar">
+			  <span class="checklabel">
+				<input type="checkbox" class="checkbox" name="autodisconnect" value="true" %autodisconnect%></input>
+				Disconnect on loose focus
+				<div class="checksub">e.g. if focus shifts to Arduino and serial port is needed for upload.</div>
+			  </span>		
+			</div><!--checkpar-->
+			<div class="checkpar">
+			  <span class="checklabel"> 
+				<input type="checkbox" class="checkbox" name="autoreconnect" value="true" %autoreconnect%></input>
+				Reconnect on regain focus
+				<div class="checksub">e.g. if serial port becomes available after upload new code.</div>
+			  </span>
+			</div><!--checkpar-->
+			
+			<div style="clear:both;padding-top:1em;border-bottom:1px solid black;"></div>
+			
+			<div class="checkpar">
+			  <span class="checklabel"> 
+				<input type="checkbox" class="checkbox" name="savesettings" value="true" checked>
+				Save settings as default
+			  </span>
+			</input>
+			</div><!--checkpar-->
+		</div><!--fieldsInner-->	  
+	  </div><!--fieldset-->
+	</div>  
+  </form>
+  
+  
+  <div style="clear:both;width:100%;"></div>
+  <br>
+  
+  <div id='alert' class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    %message%
+  </div>  
+  <script>
+    var bAlert=document.getElementById('alert');
+    if (bAlert.innerText.trim().length<=1) 
+	   bAlert.style.display='none';	   	
+  </script>
+  <div id='conn' class="info">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <p>
+	Connecting, please wait...
+	</p>
+  </div>
+  <script>
+    var bAlert=document.getElementById('conn');
+    bAlert.style.display='none';	   	
+  </script>
+
+  <div id="footer">
+    <span class="footerElementTitle">made by</span>: Nard Janssens - 2016<br>
+    <span class="footerElementTitle">version</span>: 0.9.04062016<br>
+    <span class="footerElementTitle">contact</span>: 
+	  <A href ="mailto:pandarve.link@gmail.com?SUBJECT=HTMLSerialMonitor" 
+		 style="text-decoration:none;color:steelblue">
+	  pandarve.link@gmail.com
+	  &#10095;&#10095;
+	  </a><br>
+    <span class="footerElementTitle">license</span>: 
+	  <a target="_blank" 
+	     href="https://creativecommons.org/licenses/by-nc-sa/2.5/deed.en_GB" 
+		 style="text-decoration:none;color:steelblue">
+	  Attribution-NonCommercial-ShareAlike 2.5 Generic (CC BY-NC-SA 2.5)
+	  &#10095;&#10095;
+	  </a><br>
+  </div>
+</body>
+</html>
