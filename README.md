@@ -14,7 +14,7 @@ HTML Serial Monitor needs exclusive access to the Arduino (just like the serial 
 
 If you encounter bugs or have ideas to make it better please let me know at [pandarve.link@gmail.com](pandarve.link@gmail.com).
 
-![alt text](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Bare_DecoratedText.gif "title")
-![alt text](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_Snippets.gif "title")
-![alt text](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_UserInterface.gif "title")
+!(https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Bare_DecoratedText.gif)
+!(https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_Snippets.gif)
+!(https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_UserInterface.gif)
 
