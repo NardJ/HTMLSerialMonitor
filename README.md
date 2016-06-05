@@ -14,10 +14,12 @@ HTML Serial Monitor needs exclusive access to the Arduino (just like the serial 
 
 If you encounter bugs or have ideas to make it better please let me know at [pandarve.link@gmail.com](pandarve.link@gmail.com).
 
+
 ### Directories
 - 'Builds' contains zips of the latest released versions of the Arduino Library and the application itself. (A build for iOS is not available yet, since I don't have an iOS system.)
 - 'Source' contains the latest source of the Arduino Library and the Processing source of the application.
 - 'screenshots' contains the images which are used in this readme.md
+
 
 ### Install
 - Download all files as a zip (green button top right of main page)
@@ -25,7 +27,9 @@ If you encounter bugs or have ideas to make it better please let me know at [pan
 - Place the content of the Arduino library archive in your Arduino library folder on your system (which for Windows is probably located inside your sketches folder and is called 'libraries')
 - Open the Application archive, select the correct build folder for your system and copy it somewhere to your system. This is the HTMLSerialMonitor program.
 - If you don't have java (needed by the the application) installed already, you should do this now.
-#### I'm not yet fully comfortable with github. If above instructions don't work for you of you are missing files, please let me know at [pandarve.link@gmail.com](pandarve.link@gmail.com)!
+
+**Note:** I'm not yet fully comfortable with github. If above instructions don't work for you of you are missing files, please let me know at [pandarve.link@gmail.com](pandarve.link@gmail.com)!
+
 
 ### First run
 - Open your Arduino IDE.
@@ -43,7 +47,7 @@ Now you should see the sketch on your Arduino drawing and updating the html page
 
 For more info, go to http://127.0.0.1:8080/manual.htm.
 
-To give you an impression of the possiblities:
+The screenshots below give an idea of the range of what's possible with HTMLSerialMonitor, from simple html-markup of your debugging messages using html to creating a fully functional dashboard where the user can send data back to the arduino:
 
 ![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Bare_DecoratedText.gif)
 ![](https://github.com/NardJ/HTMLSerialMonitor/blob/master/screenshots/Lib_UserInterface.gif)
