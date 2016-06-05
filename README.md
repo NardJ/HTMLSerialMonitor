@@ -25,6 +25,7 @@ If you encounter bugs or have ideas to make it better please let me know at [pan
 - Place the content of the Arduino library archive in your Arduino library folder on your system (which for Windows is probably located inside your sketches folder and is called 'libraries')
 - Open the Application archive, select the correct build folder for your system and copy it somewhere to your system. This is the HTMLSerialMonitor program.
 - If you don't have java (needed by the the application) installed already, you should do this now.
+#### I'm not yet fully comfortable with github. If above instructions don't work for you of you are missing files, please let me know at [pandarve.link@gmail.com](pandarve.link@gmail.com)!
 
 ### First run
 - Open your Arduino IDE.
