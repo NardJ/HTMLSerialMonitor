@@ -14,11 +14,17 @@ HTML Serial Monitor needs exclusive access to the Arduino (just like the serial 
 
 If you encounter bugs or have ideas to make it better please let me know at [pandarve.link@gmail.com](pandarve.link@gmail.com).
 
+### Directories
+- 'Builds' contains zips of the latest released versions of the Arduino Library and the application itself. (A build for iOS is not available yet, since I don't have an iOS system.)
+- 'Source' contains the latest source of the Arduino Library and the Processing source of the application.
+- 'screenshots' contains the images which are used in this readme.md
+
 ### Install
-- Download 
-- Open the archive
-- Go to the Processing folder in the archive, select the correct subfolder for your system en copy it to a folder of your liking. This is the HTMLSerialMonitor program.
-- Go to the Arduino-Lib folder in the archive and copy the HTMLSerialMonitor to your Arduino library folder.
+- Download all files as a zip (green button top right of main page)
+- Open the archive, go to de 'Builds' folder and copy the latest archive of the Arduino library (..... HTMLSerialMonitor - Arduino Library.zip) and the archive of the application itself (..... HTMLSerialMonitor - Application.zip) to a temporary folder on your pc.
+- Place the content of the Arduino library archive in your Arduino library folder on your system (which for Windows is probably located inside your sketches folder and is called 'libraries')
+- Open the Application archive, select the correct build folder for your system and copy it somewhere to your system. This is the HTMLSerialMonitor program.
+- If you don't have java (needed by the the application) installed already, you should do this now.
 
 ### First run
 - Open your Arduino IDE.
@@ -26,7 +32,7 @@ If you encounter bugs or have ideas to make it better please let me know at [pan
 - Burn the sketch to your Arduino.
 
 - Go to the folder where you placed the HTMLSerialMonitor program.
-- Run HTMLSerialMonitor. If you don't have java installed, HTMLSerialMonitor will ask you to install Java.
+- Run HTMLSerialMonitor. (If you forgot to install java, HTMLSerialMonitor will ask you to install Java.)
 - Now open your browser and surf to http://127.0.0.1:8080 (note the port-number)
 - Select the correct COM port and baudrate (9600).
 - Press Connect. 
