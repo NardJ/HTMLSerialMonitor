@@ -78,6 +78,8 @@ void setup(){
     
   //setup canvas
   size(240,240);
+  try {pixelDensity(2);}catch(Exception e){println(e);}//for retina displays
+  
   background(255,255,255);
   fill(0,0,0);
   PImage banner=loadImage("pd_banner.png");
